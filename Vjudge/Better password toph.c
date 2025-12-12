@@ -38,6 +38,7 @@ int main()
             c[j]='(';
             goto m;
             n:
+             ;
         };
     }
     c[b]='.';
