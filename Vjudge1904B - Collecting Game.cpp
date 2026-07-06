@@ -107,7 +107,7 @@ ll lcm(ll a, ll b)
 }
 void solve()
 {
-   ll n,i,j,e=0;
+   ll n,i;
    cin>>n;
    ll m=n-1;
    vector<pair<ll,ll>>a(n);
@@ -115,8 +115,8 @@ void solve()
    for(i=0;i<n;i++) cin>>a[i].first,a[i].second=i;
    sort(all(a));
    for(i=0;i<n;i++) if(i==0) b[i]=a[i].first; else b[i]+=b[i-1]+a[i].first;
-   for(i=0;i<n;i++) if(i>0 && b[i-1]<a[i].first) c[i]=1;
-   for(i=n-1,j=1;i>=0;i--,j++) if(c[i]==1) d[a[i].second]=m-e,d[a[i-1].second]=m-j,e=j,i--; else d[a[i].second]=m-e; 
+   for(i=0;i<n;i++) if(i>0 && b[i-1]<a[i].first) c[i-1]=1;
+   for(i=n-1;i>=0;i--) if(c[i]==1) m=i,d[a[i].second]=m;else d[a[i].second]=m; 
    for(i=0;i<n;i++) cout<<d[i]<<" ";
    cout<<nl;
 }
